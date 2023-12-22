@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    dispatch(new \App\Jobs\Timeout());
+    dispatch(new \App\Jobs\TimeoutWithoutTransaction());
     return view('welcome');
 });
